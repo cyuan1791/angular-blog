@@ -1,6 +1,6 @@
 [
 	{
-    'id': 1,
+    "id": 1,
     "summary": "Post A",
 	 "desc": "Here we declared a controller called PhoneListCtrl and registered it in an AngularJS module, phonecatApp. Notice that our ng-app directive (on the <html> tag) now specifies the phonecatApp module name as the module to load when bootstrapping the Angular application.",
 	 "date": 100000,
@@ -8,7 +8,7 @@
 	 "name": "User A"
 	}, 
 	{
-    'id': 2,
+    "id": 2,
     "summary": "Post B",
 	 "desc": "Here we declared a controller called PhoneListCtrl and registered it in an AngularJS module, phonecatApp. Notice that our ng-app directive (on the <html> tag) now specifies the phonecatApp module name as the module to load when bootstrapping the Angular application.",
 	 "date": 100002,
@@ -16,12 +16,11 @@
 	 "name": "User B"
 	}, 
 	{
-    'id': 3,
+    "id": 3,
     "summary": "Post C",
 	 "desc": "The test instantiates PhoneListCtrl and verifies that the phones array property on the scope contains three records. This example demonstrates how easy it is to create a unit test for code in Angular. Since testing is such a critical part of software development, we make it easy to create tests in Angular so that developers are encouraged to write them.",
 	 "date": 100001,
 	 "tags": ["faith", "three", "house","family"],
 	 "name": "User C"
 	}
-
 ]
