@@ -16,10 +16,24 @@ var blogApp = angular.module('blogApp', []);
 blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $http,$filter) {
     $http.get('data/blogs.json').success(function(data) {
         $scope.blogs = data;
+        $scope.selectedBogs = data;
     });
-    $scope.selectedAlbumSongs = [ { 'name': 'song1', 'url': 'http://test/song1.mp3' }, { 'name': 'song2', 'url': 'http://test/song2.mp3' }, {'name': 'song3', 'url': 'http://test/song3.mp3' }];
+    //$scope.selectedAllTags = [ { 'name': 'song1'}, { 'name': 'song2' }, {'name': 'song3'}];
+    $http.get('data/tags.json').success(function(data) {
+        $scope.selectedAllTags = data;
+    });
 
-    $scope.selectedSongs = function () {
-        $scope.playList = $filter('filter')($scope.selectedAlbumSongs, {checked: true});
+    $scope.selectedTags = function () {
+        $scope.playList = $filter('filter')($scope.selectedAllTags, {checked: true});
+        $scope.selectedBlogs = $filter('filter')($scope.blogs,function(value) {
+            //console.log(value.tags);       
+            for (var i=0; i< $scope.playList.length; i++) {
+                if (value.tags.indexOf($scope.playList[i].name) != -1) {
+                    return true;
+                }
+            }
+            return false;
+        });
+        //console.log($scope.selectedBlogs);
     }
 }]);

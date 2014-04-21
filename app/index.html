@@ -20,17 +20,19 @@
 
         <div class="container-fluid" ng-app="blogApp">
             <div class="row" ng-controller="blogCtrl">
-                <div class="col-sm-4">
-                    {{playList}}
-                    <legend>Select songs to play</legend>
-                    <label ng-repeat="song in selectedAlbumSongs">
-                        <input type="checkbox" name="{{song.url}}" id="{{song.name}}" ng-model="song.checked" ng-change="selectedSongs()">
-                        <label for="{{song.name}}">{{song.name}}</label>
+                <div class="col-sm-3">
+                        {{playList}},
+                    <legend>Select tags</legend>
+                    <span ng-repeat="tag in selectedAllTags">
+                        <input type="checkbox" name="{{tag.name}}" id="{{tag.name}}" ng-model="tag.checked" ng-change="selectedTags()">
+                        {{tag.name}},
+                    </span>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-9">
                         <ul>
-                            <li ng-repeat="blog in blogs">
+                            <li ng-repeat="blog in selectedBlogs">
                             {{blog.summary}}
+                            {{blog.tags}}
                             </li>
                         </ul>
 
