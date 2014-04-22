@@ -6,7 +6,7 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
     $http.get('data/blogs.json').success(function(data) {
         $scope.blogs = data;
         $scope.selectedBlogs = data;
-        $scope.originalSelectedBlogs  = $data;
+        $scope.originalSelectedBlogs  = data;
     });
     //$scope.selectedAllTags = [ { 'name': 'song1'}, { 'name': 'song2' }, {'name': 'song3'}];
     $http.get('data/tags.json').success(function(data) {
