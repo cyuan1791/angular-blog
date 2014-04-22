@@ -35,11 +35,14 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
         //console.log(value);
         //$scope.myPost = value;
         $http.get('data/posts/' + value).success(function(data) {
-            $scope.myPost = '<input type="button" value="Reload Page" onClick="window.location.reload()"> <br>' + data;
+            $scope.myPost = data
         });
 
         // clear blogs
         $scope.selectedBlogs  = null;
 
     }
+    $scope.reload = function () {
+        window.location.reload();
+    };
 }]);

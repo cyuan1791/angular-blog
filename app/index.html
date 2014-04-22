@@ -28,8 +28,8 @@
                     </span>
                 </div>
                 <div class="col-sm-9">
+                    <button ng-click="reload()" > Back  </button> <br>
                     <div ng-bind-html="myPost"></div>
-                    <form>
                         <ul>
                             <li ng-repeat="blog in selectedBlogs">
                             {{blog.summary}}
@@ -37,7 +37,6 @@
                             <button ng-click="selectMyPost(blog.id)" > Read Post </button>
                             </li>
                         </ul>
-                    </form>
 
                 </div>
             </div>
