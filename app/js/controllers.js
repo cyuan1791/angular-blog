@@ -1,17 +1,6 @@
 'use strict';
 
-/* Controllers */
-
-angular.module('myApp.controllers', []).
-controller('MyCtrl1', [function() {
-
-}])
-.controller('MyCtrl2', [function() {
-
-}]);
-
-
-var blogApp = angular.module('blogApp', []);
+var blogApp = angular.module('blogApp', ['ngSanitize']);
 
 blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $http,$filter) {
     $http.get('data/blogs.json').success(function(data) {
@@ -44,9 +33,9 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
     }
     $scope.selectMyPost = function (value) {
         //console.log(value);
-        $scope.myPost = value;
+        //$scope.myPost = value;
         $http.get('data/posts/' + value).success(function(data) {
-            $scope.myPost = data;
+            $scope.myPost = '<input type="button" value="Reload Page" onClick="window.location.reload()"> <br>' + data;
         });
 
         // clear blogs
