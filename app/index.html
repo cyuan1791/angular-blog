@@ -5,19 +5,16 @@
         <title>My AngularJS App</title>
         <link rel="stylesheet" href="css/app.css"/>
         <link rel="stylesheet" href="css/bootstrap.css"/>
+
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular/angular-sanitize.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/directives.js"></script>
     </head>
     <body>
-        <!--
-        <div ng-app="myApp">
-            <ul class="menu">
-                <li><a href="#/view1">view1</a></li>
-                <li><a href="#/view2">view2</a></li>
-            </ul>
-
-            <div ng-view></div>
-        </div>
-        -->
-
         <div class="container-fluid" ng-app="blogApp">
             <div class="row" ng-controller="blogCtrl">
                 <div class="col-sm-3">
@@ -46,15 +43,5 @@
             </div>
         </div>
 
-        <!-- In production use:
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-        -->
-        <script src="lib/angular/angular.js"></script>
-        <script src="lib/angular/angular-sanitize.js"></script>
-        <script src="js/app.js"></script>
-        <script src="js/services.js"></script>
-        <script src="js/controllers.js"></script>
-        <script src="js/filters.js"></script>
-        <script src="js/directives.js"></script>
     </body>
 </html>
