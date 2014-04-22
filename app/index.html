@@ -34,7 +34,7 @@
                             <li ng-repeat="blog in selectedBlogs">
                             {{blog.summary}}
                             {{blog.tags}}
-                            <button ng-click="selectMyPost(1)" > Read Post </button>
+                            <button ng-click="selectMyPost(blog.id)" > Read Post </button>
                             </li>
                         </ul>
                     </form>
