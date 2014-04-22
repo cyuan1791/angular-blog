@@ -21,22 +21,26 @@
         <div class="container-fluid" ng-app="blogApp">
             <div class="row" ng-controller="blogCtrl">
                 <div class="col-sm-3">
-                    <legend>Select tags</legend>
-                    <span ng-repeat="tag in selectedAllTags">
-                        <input type="checkbox" name="{{tag.name}}" id="{{tag.name}}" ng-model="tag.checked" ng-change="selectedTags()">
-                        {{tag.name}},
-                    </span>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Select Tag(s)</div>
+                        <div class="panel-body">
+                            <span ng-repeat="tag in selectedAllTags">
+                                <input type="checkbox" name="{{tag.name}}" id="{{tag.name}}" ng-model="tag.checked" ng-change="selectedTags()">
+                                {{tag.name}},
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-9">
                     <button ng-click="reload()" > Back  </button> <br>
                     <div ng-bind-html="myPost"></div>
-                        <ul class="list-group">
-                            <li class="list-group-item"  ng-repeat="blog in selectedBlogs">
-                            <button ng-click="selectMyPost(blog.id)" > Read Post </button>
-                            Tag: {{blog.tags}}
-                            , {{blog.summary}}
-                            </li>
-                        </ul>
+                    <ul class="list-group">
+                        <li class="list-group-item"  ng-repeat="blog in selectedBlogs">
+                        <button ng-click="selectMyPost(blog.id)" > Read Post </button>
+                        Tag: {{blog.tags}}
+                        , {{blog.summary}}
+                        </li>
+                    </ul>
 
                 </div>
             </div>
