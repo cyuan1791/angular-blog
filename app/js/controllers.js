@@ -6,6 +6,7 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
     $http.get('data/blogs.json').success(function(data) {
         $scope.blogs = data;
         $scope.selectedBlogs = data;
+        $scope.originalSelectedBlogs  = $data;
     });
     //$scope.selectedAllTags = [ { 'name': 'song1'}, { 'name': 'song2' }, {'name': 'song3'}];
     $http.get('data/tags.json').success(function(data) {
@@ -26,6 +27,7 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
             }
             return false;
         });
+        $scope.originalSelectedBlogs  = $scope.selectedBlogs;
         //console.log($scope.selectedBlogs.length);
 
         // restore to all blog if no tag selected
@@ -39,10 +41,13 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
         });
 
         // clear blogs
+        $scope.originalSelectedBlogs  = $scope.selectedBlogs;
         $scope.selectedBlogs  = null;
 
     }
     $scope.reload = function () {
-        window.location.reload();
+        $scope.myPost = '';
+        $scope.selectedBlogs = $scope.originalSelectedBlogs;
+        //window.location.reload();
     };
 }]);
