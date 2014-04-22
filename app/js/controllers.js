@@ -28,6 +28,7 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
         $scope.selectedBlogs = $filter('filter')($scope.blogs,function(value) {
             // looping through all blogs and find matching selected tags
             //console.log(value.tags);       
+            $scope.myPost = '';
             for (var i=0; i< $scope.tagList.length; i++) {
                 // looping all selected tags
                 if (value.tags.indexOf($scope.tagList[i].name) != -1) {
@@ -40,5 +41,16 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
 
         // restore to all blog if no tag selected
         if ($scope.selectedBlogs.length == 0) $scope.selectedBlogs = $scope.blogs;
+    }
+    $scope.selectMyPost = function (value) {
+        //console.log(value);
+        $scope.myPost = value;
+        $http.get('data/posts/' + value).success(function(data) {
+            $scope.myPost = data;
+        });
+
+        // clear blogs
+        $scope.selectedBlogs  = null;
+
     }
 }]);
