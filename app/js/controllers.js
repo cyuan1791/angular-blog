@@ -3,13 +3,13 @@
 var blogApp = angular.module('blogApp', ['ngSanitize']);
 
 blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $http,$filter) {
-    $http.get('data/blogs.json').success(function(data) {
+    $http.get('data/blogs.json?nocache='+ (new Date()).getTime()).success(function(data) {
         $scope.blogs = data;
         $scope.selectedBlogs = data;
         $scope.originalSelectedBlogs  = data;
     });
     //$scope.selectedAllTags = [ { 'name': 'song1'}, { 'name': 'song2' }, {'name': 'song3'}];
-    $http.get('data/tags.json').success(function(data) {
+    $http.get('data/tags.json?nocache='+ (new Date()).getTime()).success(function(data) {
         $scope.selectedAllTags = data;
     });
 
@@ -36,7 +36,7 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
     $scope.selectMyPost = function (value) {
         //console.log(value);
         //$scope.myPost = value;
-        $http.get('data/posts/' + value).success(function(data) {
+        $http.get('data/posts/' + value + '?nocache=' + (new Date()).getTime()).success(function(data) {
             $scope.myPost = data
         });
 
