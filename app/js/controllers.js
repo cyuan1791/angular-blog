@@ -37,7 +37,7 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
         //console.log(value);
         //$scope.myPost = value;
         $http.get('data/posts/' + value + '?nocache=' + (new Date()).getTime()).success(function(data) {
-            $scope.myPost = data
+            $scope.myPost = '<div class="panel panel-default"> <div class="panel-body">'+data +'</div></div>'
         });
 
         // clear blogs
