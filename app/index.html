@@ -35,6 +35,7 @@
                         <li class="list-group-item"  ng-repeat="blog in selectedBlogs">
                         <button ng-click="selectMyPost(blog.id)" > Read Post </button>
                         Tag: {{blog.tags}}
+                        , {{blog.title}}
                         , {{blog.summary}}
                         </li>
                     </ul>
