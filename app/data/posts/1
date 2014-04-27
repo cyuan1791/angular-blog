@@ -12,6 +12,7 @@
   </div>
   <div class="panel-body">
     Panel content
+<p><span style="color: #ff6600;">Hello from Dr. Dream</span></p>
   </div>
 </div>
 

@@ -2,7 +2,7 @@
 
 var blogApp = angular.module('blogApp', ['ngSanitize']);
 
-blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $http,$filter) {
+blogApp.controller('blogCtrl', ['$scope', '$http','$filter','$sce', function ($scope, $http,$filter,$sce) {
     $http.get('data/blogs.json?nocache='+ (new Date()).getTime()).success(function(data) {
         $scope.blogs = data;
         $scope.selectedBlogs = data;
@@ -44,6 +44,9 @@ blogApp.controller('blogCtrl', ['$scope', '$http','$filter', function ($scope, $
         $scope.originalSelectedBlogs  = $scope.selectedBlogs;
         $scope.selectedBlogs  = null;
 
+    }
+    $scope.trustedHtml = function () {
+          return $sce.trustAsHtml($scope.myPost);
     }
     $scope.reload = function () {
         $scope.myPost = '';
